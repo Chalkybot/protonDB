@@ -1,4 +1,5 @@
 import requests
+import subprocess
 import sys
 import os
 import time
@@ -260,7 +261,7 @@ def single(game, gameID=None):
     The trending rating was {colourText(gameRankings[0],gameRankings[3])}""")
     toInstall =input(f"\n    Do you wish to install {game}? [Y/n] ")
     if toInstall.lower() == 'y':
-        os.system(f"steam steam://rungameid/{gameID} &> /dev/null")
+        subprocess.run(["steam", f"steam://rungameid/{gameID}"])
     else:
         print("    exiting...")
 
